@@ -2,7 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link rel="stylesheet" href="stylesheets/main.css">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBctEDevgJFJRMkIyEyld_WwFV_70F_X_k"></script>
   </head>
@@ -10,12 +10,12 @@
     <div class="container">
       <div class="jumbotron main" ng-controller="MainController">
         <h2>Take me somewhere</h2>
-        <p>{{latitude}}, {{longitude}}</p>
+        <p ng-init="load">{{latitude}}, {{longitude}}</p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button" ng-click="fetchPlaces()">Get Directions</a></p>
       </div>
 
       <div id="map"></div>
-      <script src="/javascripts/main.js"></script>
+      <script src="javascripts/main.js"></script>
     </div>
   </body>
 </html>

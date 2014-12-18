@@ -1,8 +1,11 @@
 angular.module('AB', [])
 .controller('MainController', ['$http', '$scope', function($http, $scope) {
   navigator.geolocation.getCurrentPosition(function(position) {
-    $scope.latitude = position.coords.latitude;
-    $scope.longitude = position.coords.longitude;
+    console.log(position);
+    $scope.$apply(function(){
+      $scope.latitude = position.coords.latitude;
+      $scope.longitude = position.coords.longitude;
+    });
   });
   var map;
   var service;

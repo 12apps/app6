@@ -13,7 +13,11 @@ var service;
 var infowindow;
 
 function initialize() {
-  var current = new google.maps.LatLng(37.495395099999996,-121.91775819999998);
+
+ navigator.geolocation.getCurrentPosition(function(position) {
+  var latitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+  var current = new google.maps.LatLng(latitude,longitude);
 
   map = new google.maps.Map(document.getElementById('map'), { center: current, zoom: 15 });
 
@@ -25,6 +29,7 @@ function initialize() {
 
   service = new google.maps.places.PlacesService(map);
   service.nearbySearch(request, callback);
+  });
 }
 
 function callback(results, status) {

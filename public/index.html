@@ -10,12 +10,13 @@
     <div class="container">
       <div class="jumbotron main" ng-controller="MainController">
         <h2>Take me somewhere</h2>
-        <p ng-init="load">{{latitude}}, {{longitude}}</p>
+        <p>{{latitude}}, {{longitude}}</p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button" ng-click="fetchPlaces()">Get Directions</a></p>
       </div>
 
       <div id="map"></div>
-      <script src="javascripts/main.js"></script>
+      <div id="directionsPanel"></div>
+      <script src="/javascripts/main.js"></script>
     </div>
   </body>
 </html>

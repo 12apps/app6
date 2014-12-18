@@ -1,20 +1,20 @@
 angular.module('AB', [])
 .controller('MainController', ['$http', '$scope', function($http, $scope) {
+
+  var map, currentLocation, service;
   navigator.geolocation.getCurrentPosition(function(position) {
     console.log(position);
     $scope.$apply(function(){
       $scope.latitude = position.coords.latitude;
       $scope.longitude = position.coords.longitude;
+      currentLocation = new google.maps.LatLng($scope.latitude, $scope.longitude);
+      map = new google.maps.Map(document.getElementById('map'), { center: currentLocation, zoom: 15 });
     });
   });
-  var map;
-  var service;
-  var infowindow;
+
   $scope.fetchPlaces = function() {
-    var current = new google.maps.LatLng($scope.latitude, $scope.longitude);
-    var map = new google.maps.Map(document.getElementById('map'), { center: current, zoom: 15 });
     var request = {
-      location: current,
+      location: currentLocation,
       radius: '1600',
       types: ['amusement_park', 'aquarium', 'art_gallery', 'bar', 'book_store', 'bowling_alley', 'cafe', 'casino', 'food', 'library', 'museum', 'night_club', 'park', 'restaurant', 'shopping_mall', 'spa', 'zoo']
     };
@@ -27,7 +27,7 @@ angular.module('AB', [])
       directionsDisplay.setMap(map);
       directionsDisplay.setPanel(document.getElementById("directionsPanel"))
       var request = {
-        origin: current,
+        origin: currentLocation,
         destination: destination.geometry.location,
         travelMode: google.maps.TravelMode.WALKING
       };
@@ -42,4 +42,5 @@ angular.module('AB', [])
   var pickRandom = function(places) {
     return places[Math.floor(Math.random()*places.length)];
   };
+
 }]);

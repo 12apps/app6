@@ -1,22 +1,14 @@
 <!doctype html>
 <html>
   <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="stylesheets/main.css">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBctEDevgJFJRMkIyEyld_WwFV_70F_X_k"></script>
   </head>
-  <body ng-app="AB">
-    <div class="container">
-      <div class="jumbotron main" ng-controller="MainController">
-        <h2>Take me somewhere</h2>
-        <p>{{latitude}}, {{longitude}}</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button" ng-click="fetchPlaces()">Get Directions</a></p>
-      </div>
-
-      <div id="map"></div>
-      <div id="directionsPanel"></div>
-      <script src="/javascripts/main.js"></script>
-    </div>
+  <body ng-app="AB" ng-controller="MainController">
+    <div id="map"></div>
+    <div id="directionsPanel"></div>
+    <a id="magic-button" ng-click="fetchPlaces()">Get Directions</a>
+    <script src="/javascripts/main.js"></script>
   </body>
 </html>

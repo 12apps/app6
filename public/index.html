@@ -6,9 +6,11 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBctEDevgJFJRMkIyEyld_WwFV_70F_X_k"></script>
   </head>
   <body ng-app="AB" ng-controller="MainController">
+    <div id="over_map">
+      <button id="magic-button" class="btn" ng-click="fetchPlaces()">Start Adventure</button>
+    </div>
     <div id="map"></div>
     <div id="directionsPanel"></div>
-    <a id="magic-button" ng-click="fetchPlaces()">Get Directions</a>
     <script src="/javascripts/main.js"></script>
   </body>
 </html>
